@@ -1,5 +1,5 @@
 # Rec-SSP: Balancing Long-Short-Term User Preferences via Multilevel Sequential Patterns for Review-Aware Recommendation
-
+![Last Commit](https://img.shields.io/github/last-commit/kkkimsuji/Rec-SSP?style=flat-square)
 [![Paper](https://img.shields.io/badge/MDPI_Electronics-Paper-blue)](https://doi.org/10.3390/electronics15040753)
 [![DOI](https://img.shields.io/badge/DOI-10.3390/electronics15040753-red)](https://doi.org/10.3390/electronics15040753)
 
