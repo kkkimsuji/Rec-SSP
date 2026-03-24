@@ -1,0 +1,32 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# --- Virtual Environment ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Data (CRITICAL: Do not upload large datasets) ---
+# We keep the folder structure but ignore the actual data files
+data/raw/*.jsonl
+data/preprocessed/*.pkl
+
+# --- IDEs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Logs & OS ---
+*.log
+.DS_Store
+Thumbs.db
+
+# --- Weights & Models (Optional: if you save trained models) ---
+*.h5
+*.keras
+saved_models/
