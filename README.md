@@ -29,12 +29,6 @@ This project is implemented in **Python 3.8+**. To ensure reproducibility, pleas
 - `PyArrow` (>=10.0.0): For high-performance Parquet file handling.
 - `tqdm` (>=4.64.0): For real-time progress bars during embedding extraction.
 
-### 3. Installation
-We recommend using a virtual environment. You can install all dependencies at once using the following command:
-
-```bash
-pip install -r requirements.txt
-```
 ## Repository Structure
 
 The repository is organized as follows to ensure a clear workflow from data preprocessing to model evaluation:
@@ -59,6 +53,27 @@ Rec-SSP/
     ├── raw/              # Original Amazon/Yelp JSONL metadata and sample files [cite: 334]
     └── preprocessed/     # Generated pickle files for efficient model training
 ```
+## How to Run 
+
+Follow these steps to set up the environment and execute the **Rec-SSP** (Recommender System emphasizing Short-term Preference) pipeline.
+
+### 1. Installation & Environment Setup
+```bash
+python -m venv .venv
+pip install -r requirements.txt
+```
+### 2. Data Preparation
+- Raw Data Path: ```data/raw/``` (Place your original review JSON files here)
+- Preprocessing: Automatically handled during the execution of ```main.py```
+
+### 3. Configuration
+File Path: ```src/config.yaml``` (Manage hyperparameters and data paths)
+
+### 4. Train and Evaluate
+```bash
+python main.py
+```
+
 ## Model Description
 
 First, the model extracts long-term preferences by processing a user's aggregated historical review sets through a pretrained BERT model to capture stable, inherent tastes. Next, it models short-term preferences by identifying sequential patterns from recent interactions at both the review level (using BERT-based semantic flow) and the category level (using multi-hot attribute transitions). These multilevel sequences are processed through Gated Recurrent Units (GRU) to capture temporal dependencies and are further refined by a multi-head attention mechanism that emphasizes interactions most relevant to the target item characteristics. Finally, the model dynamically integrates these heterogeneous signals using a Gated Fusion Mechanism, which adaptively regulates the balance between historical stability and recent dynamics to predict the final preference rating via a multilayer perceptron (MLP) optimized by Mean Squared Error (MSE) loss.
